@@ -1,0 +1,42 @@
+<script>
+    var backend= 'http://127.0.0.1:5500/ventas'; // URL de mi servidor que realizara lo que le ordene
+
+    $(function () {
+        $('#cajaCodigo').focus();
+        $('#divDetalle').load("ventas/detalle.html"); //Carga la pagina ventas en divDetalles
+    });
+//Se manda a llamar la funcion buscarCodigo
+    function buscarCodigo(event){
+        if(event.key=='Enter'){ //Preguntamos si la tecla es enter//
+            var datos={ //cramos variable para el arreglo
+                codigo:$('#cajaCodigo').val()
+            }
+            $.ajax({   //Realizamos una peticion de formato ajax // Caragteristica de ajax No se recarga toda la pagina solo una pate de ella
+                url: backend + "/buscarCodigo",
+                type: 'post',
+                datatype: 'json',// Formato en el que resivo
+                data:JSON.stringify(datos),// Convertimos la variable datos de java a formato JASON
+                contentType:'application/json',//Informacion que voy a enviar
+                xhrFields: {withCredentials:true}, //Es para los identificadores del cliente//
+                success: function(respuesta){
+                    console.log(respuesta); // Se pone la respuesta o la peticion //
+                   $('#divDetalle').load("ventas/detalle.html");//Carga la pagina detalle en Divdetalle
+                   
+                }
+            });
+        }
+    }
+</script>
+<!-- Esto aparece despues de Cargar la pagina ventas en divDetalles -->
+<h2 style="text-align:center">Tabla de productos</h2>
+<div class="form-group row">
+    <div class="col-auto">
+        <label for="cajaCodigo" class="col-form-label">Código del curso</label>
+    </div>
+    <div class="col-auto">
+        <input type="text" class="form-control" id="cajaCodigo" value size="30"
+            placeholder="Captura el codigo de barras"
+            onkeypress="buscarCodigo(event);">
+    </div>
+</div>
+<div id ="divDetalle"></div>

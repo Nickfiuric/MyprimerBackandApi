@@ -1,0 +1,212 @@
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Producto</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <script type="text/javascript" src="js/jquery-3.7.1.js"></script><!--Para mis funciones-->
+  <script type="text/javascript" src="js/jquery.validate.js"></script>
+  <script type="text/javascript" src="js/bootstrap.bundle.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/carousel.css">
+
+  <script>
+    $(function () {
+      $('#divMenu').load('menu.html');
+    });
+  </script>
+
+</head>
+<body>
+  <div id="divMenu"></div>
+
+
+<!-- Comienza el Carrusel -->
+<main>
+  <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0"
+        class="active" aria-current="true"
+        aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <svg class="bd-placeholder-img" width="100%" height="100%"
+          aria-hidden="true"
+          preserveAspectRatio="xMidYMid slice" focusable="false">
+          <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+        </svg>
+        <div class="container">
+          <div class="carousel-caption text-start">
+            <h1>Desarrollo Web desde Cero: Domina HTML, CSS y JavaScript.</h1>
+            <p class="opacity-75">Diseño interactivo, estilo impecable: ¡HTML, CSS y JS en acción</p>
+            <p><a class="btn btn-lg btn-primary" href="Tarjeta.html">Descubrir mas</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <svg class="bd-placeholder-img" width="100%" height="100%"
+          aria-hidden="true"
+          preserveAspectRatio="xMidYMid slice" focusable="false">
+          <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+        </svg>
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>Creación de Apps Móviles con Flutter: Curso Completo.</h1>
+            <p>Some representative placeholder content for the second slide of
+              the carousel.</p>
+            <p><a class="btn btn-lg btn-primary"  href="Tarjeta.html">Mostrar productos</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <svg class="bd-placeholder-img" width="100%" height="100%"
+          aria-hidden="true"
+          preserveAspectRatio="xMidYMid slice" focusable="false">
+          <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+        </svg>
+        <div class="container">
+          <div class="carousel-caption text-end">
+            <h1>Programación Orientada a Objetos con Java: Desde Fundamentos hasta Proyectos Avanzados</h1>
+            <p>Descubre el nuevo mundo de la programacion con estos cursos para principiantes</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Me interesa</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Son los botones de mis carruseles para desplasarme <> -->
+    <button class="carousel-control-prev" type="button"
+      data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </button>
+    <button class="carousel-control-next" type="button"
+      data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <!-- Son los botones de mis carruseles para desplasarme <> -->
+    </button>
+  </div>
+  <!--Finaliza el  Carrusel -->
+</main>
+<!-- Comienza los circulos y las presentaciones que se encuentran abajo de ellos -->
+<div class="carousel-inner">
+  <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+    <div class="container marketing">
+      <div class="row">
+        <div class="col-lg-4">
+          <img src="img/C++.jpg" class="bd-placeholder-img rounded-circle"
+            width="140" height="140" role="img"
+            aria-label="Placeholder" preserveAspectRatio="xMidYMid slice"
+            focusable="false">
+          <title>Placeholder</title>
+          <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+          <h2 class="fw-normal">Los mejores cursos</h2>
+          <p>Especialisate en desarollo de software no pierdas esta gran oportunidad</p>
+          <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+        </div>
+        <div class="col-lg-4">
+          <img src="img/C++.jpg" class="bd-placeholder-img rounded-circle"
+            width="140" height="140" role="img"
+            aria-label="Placeholder" preserveAspectRatio="xMidYMid slice"
+            focusable="false">
+          <title>Placeholder</title>
+          <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+          <h2 class="fw-normal">Convierte</h2>
+          <p>"¡Convierte tus ideas en realidad! Aprende a programar y crea el futuro que imaginas. Descubre nuestro curso de programación para principiantes hoy mismo."</p>
+          <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+        </div>
+        <div class="col-lg-4">
+          <img src="img/C++.jpg" class="bd-placeholder-img rounded-circle"
+            width="140" height="140" role="img"
+            aria-label="Placeholder" preserveAspectRatio="xMidYMid slice"
+            focusable="false">
+          <title>Placeholder</title>
+          <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+          <h2 class="fw-normal">Se el mejor</h2>
+          <p>"Hazte un experto en tecnología. Nuestro programa de desarrollo web te brinda las habilidades necesarias para triunfar en la era digital. ¡Empieza tu viaje hacia el éxito hoy!"</p>
+          <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+        </div>
+        <!-- Fin de los circulos  -->
+      </div>
+
+      <!-- Comiezna el apartado que esta abajo de los circulos -->
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading fw-normal lh-1">First featurette
+            heading. <span class="text-body-secondary">It’ll blow your mind.</span></h2>
+          <p class="lead">Some great placeholder content for the first
+            featurette here. Imagine some exciting prose here.</p>
+        </div>
+        <div class="col-md-5">
+          <img src="img/Moto.jpg" alt
+            class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+            width="500"
+            height="500" role="img" aria-label="Placeholder: 500x500"
+            preserveAspectRatio="xMidYMid slice" focusable="false">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+          <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that
+            good. <span class="text-body-secondary">See for yourself.</span></h2>
+          <p class="lead">Another featurette? Of course. More placeholder
+            content here to give you an idea of how this layout would work
+            with some actual real-world content in place.</p>
+        </div>
+        <div class="col-md-5 order-md-1">
+          <img src="img/IM1.jpg" alt
+            class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+            width="500"
+            height="500" role="img" aria-label="Placeholder: 500x500"
+            preserveAspectRatio="xMidYMid slice" focusable="false">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading fw-normal lh-1">And lastly, this one.
+            <span class="text-body-secondary">Checkmate.</span>
+          </h2>
+          <p class="lead">And yes, this is the last block of representative
+            placeholder content. Again, not really intended to be actually
+            read, simply here to give you a better view of what this would
+            look like with some actual content. Your content.</p>
+        </div>
+        <div class="col-md-5">
+          <svg
+            class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+            width="500"
+            height="500" role="img" aria-label="Placeholder: 500x500"
+            preserveAspectRatio="xMidYMid slice" focusable="false">
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="var(--bs-secondary-bg)" /><text
+              x="50%" y="50%"
+              fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
+          </svg>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+    </div>
+  </div>
+</div>
+
+<!-- Final de la pagina  -->
+<footer class="container">
+  <p>&copy; 2023 Company, Inc. &middot; <a href="#">Privacy</a> &middot;
+    <a href="#">Terms</a>
+  </p>
+</footer>
+
+
+</body>
+

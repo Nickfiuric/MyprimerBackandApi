@@ -1,0 +1,156 @@
+<script>
+    var backend= 'http://127.0.0.1:8090/ventas';
+
+    $(function () { //Al momento de cargar la pagina realizara lo que este aqui dentro // No recarga la pagina 
+        consultarVenta();
+    });
+   
+
+    function consultarVenta(event){
+            $.ajax({   //
+                url: backend + "/consultarVenta",  // es una URL que esta conectada con mi Spring Tools en servicios
+                type: 'post',
+                datatype: 'json',
+                xhrFields: {withCredentials:true}, //Es para los identificadores del cliente las cookis//
+                success: function(respuesta){
+                    console.log(respuesta); // Se pone la respuesta o la peticion //
+                    mostrarCarrito(respuesta);//Se le pasa el parametro respuesta a mostrarCarrito
+                }
+            });
+        }
+//Funcion de Limpiar mi ventas
+        function LimpiarVenta(){
+            $.ajax({   //
+                url: backend + "/LimpiarVenta",  // es una URL que esta conectada con mi Spring Tools en servicios
+                type: 'post',
+                datatype: 'json',
+                xhrFields: {withCredentials:true}, //Es para los identificadores del cliente las cookis//
+                success: function(respuesta){
+                    console.log(respuesta); // Se pone la respuesta o la peticion //
+                    $('#divDetalle').load("ventas/detalle.html");
+                }
+            });
+        }
+        function SumarDetalle(Sum){
+            $.ajax({   //
+                url: backend + "/SumarDetalle/"+ Sum,  // es una URL que esta conectada con mi Spring Tools en servicios
+                type: 'post',
+                datatype: 'json', // Resibo en formadto json
+                xhrFields: {withCredentials:true}, //Es para los id<<<sentificadores del cliente las cookis//
+                success: function(respuesta){
+                    console.log(respuesta); // Se pone la respuesta o la peticion 
+                    $('#divDetalle').load("ventas/detalle.html"); //Recarga detalle
+                }
+            });
+        }
+        //Funcion de Guardar Venta
+        function guardaVenta(){
+            $.ajax({   //
+                url: backend + "/guardaVenta",  // es una URL que esta conectada con mi Spring Tools en servicios
+                type: 'post',
+                datatype: 'json',
+                xhrFields: {withCredentials:true}, //Es para los identificadores del cliente las cookis//
+                success: function(respuesta){
+                    console.log(respuesta); // Se pone la respuesta o la peticion //
+                    $('#divDetalle').load("ventas/detalle.html");
+                }
+            });
+        }
+
+//Funcion del boton eliminar
+        function eliminarDetalle(pos){
+            $.ajax({   //
+                url: backend + "/eliminarDetalle/"+ pos,  // es una URL que esta conectada con mi Spring Tools en servicios
+                type: 'post',
+                datatype: 'json', // Resibo en formadto json
+                xhrFields: {withCredentials:true}, //Es para los id<<<sentificadores del cliente las cookis//
+                success: function(respuesta){
+                    console.log(respuesta); // Se pone la respuesta o la peticion //
+                    $('#divDetalle').load("ventas/detalle.html"); //Recarga detalle
+                }
+            });
+        }
+        var apiFotos = 'https://api.pexels.com/v1/photos/';
+    var cliente='s5Y9qwSdavChexJ4KkrrnBnlJ0I70dBVoGOJv6ELGMCtofR1OahfgCj1';
+    
+  
+
+
+        // Funcion mostrarCarrito // Muestra mi tabla en mi pagina web
+        function mostrarCarrito(venta) {
+        var body = ''; 
+        $.each(venta['detalles'], function (i, detalle) {
+            body += 
+            '<tr class="table-' + ((i % 2 == 0) ? 'primary' : 'secondary') + '">' +
+                //Aqui se muestra la informacion de la tabla
+                '<td scope="row">' + detalle.productoDTO.nombre + '</td>' +
+                '<td scope="row">$' + detalle.precio + '</td>' +
+                '<td scope="row">' + detalle.cantidad + '</td>' +
+                '<td scope="row">$' + detalle.subtotal + '</td>' +
+                '<td scope="row">' + detalle.productoDTO.nivel + '</td>' +
+                '<td scope="row">' + detalle.productoDTO.campodisiplinar + '</td>' +
+                //Columna de detalles donde agregamos un boton y un evento onclik
+                '<td scope="row"><button  type="button" class="btn btn-danger btn" onclick = "eliminarDetalle('+ i +')">Eliminar</button></td>'+ 
+               '</tr>'
+        });
+    
+        $('#carrito > tbody').html(body);
+        $('#CampoTotal').html('$'+venta.total);
+
+
+
+
+        if(venta.detalles.length>0){ // hace que muestre los botones en caso de que no este basia la tabla
+            if(!venta.ventarealizada){
+            $('#botonVenta').show();    //
+            }else
+            {
+                window.alert('Gracias por su compra');
+                $('.btn-desaparece').hide();
+                
+            }
+           
+           $('#botonLimpiar').show();   //
+        }
+
+    }
+    $('#botonVenta').hide();
+    $('#botonLimpiar').hide();
+        
+</script>
+<!-- Muestra la tabla -->
+<br>
+<table class="table table-bordered table-dark align-baseline" id="carrito">
+
+    <thead >
+
+        <tr style="text-align: center;">
+            <th scope="col">Producto</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Subtotal</th>
+            <th scope="col">Nivel</th>
+            <th scope="col">campodisiplinar</th>
+            <th scope="col">Acciones</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+    <tfoot>
+        <tr class="table-primary">
+            <th scope="row"></th>
+            <td>Total:</td>
+            <td id="CampoTotal"></td> <!--Selda donde se muestra nuestro toal-->
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          
+        </tr>
+    </tfoot>
+</table>
+<button type="button" class="btn btn-outline-info" id="botonVenta"
+    onclick="guardaVenta()">Adquirir producto</button>
+<button type="button" class="btn btn-outline-warning" id="botonLimpiar"
+    onclick="LimpiarVenta();">eliminar productos</button>

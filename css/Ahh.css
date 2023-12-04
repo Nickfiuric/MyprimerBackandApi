@@ -1,0 +1,11 @@
+section {
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    gap: 10px;
+}
+.image-conta{
+    display: flex;
+}
+.image-conta img {
+width: 100%;
+}

@@ -1,0 +1,60 @@
+
+<script>
+    var cliente='s5Y9qwSdavChexJ4KkrrnBnlJ0I70dBVoGOJv6ELGMCtofR1OahfgCj1';
+    var apiFotos = 'https://api.pexels.com/v1/photos/';
+    let url = 'http://localhost:8090/productos/consultarProductos';
+///////////////////// Se realizan mis tarjetas con balores que tengo en mi base de datos 
+        fetch(url)
+            .then( response => response.json() )
+            .then( data => mostrarData(data) )
+            .catch( error => console.log(error) )
+
+        const mostrarData = (data) => {
+            console.log(data)
+            let body = ""
+            for (var i = 0; i < data.length; i++) {      
+               body=`
+        <div class="card image-conta" style="width: 18rem;">
+  <img  class="card-img-top" id ="miImagen${data[i].codigo}">
+  <div class="card-body">
+    <h5 class="card-title"> ${data[i].nombre}</h5>
+    <p class="card-text">Codigo del producto: ${data[i].codigo }</p>
+    <p class="card-text">Descripcion del producto: ${data[i].descripcion}</p>
+        <p class="card-text">Dificultad: ${data[i].nivel}</p>
+        <p class="card-text">Campo disiplinario:  ${data[i].campodisiplinar }</p>
+        <a href="#" class="btn btn-primary">$${data[i].precio}</a>
+        <a href="#" class="btn btn-primary" >Agregar al carrito</a>
+  </div>
+</div>  `
+   $('#data').append(body); 
+    consultarImagen("miImagen"+data[i].codigo);  
+    
+}
+//Fin de mis tarjetas don mis datos 
+
+// Funcion de mi APi para mandar llamar las imagenes
+function consultarImagen(img) {
+    $.ajax({
+        url: apiFotos + data[i].codigo, // lo que tengo en mi campo dato.codigo lo concatena con mi cariable api foto que es mi url
+        type: 'get',
+        beforeSend: function (xhr){
+            xhr.setRequestHeader("Authorization",cliente)
+        },
+        success: function (respuesta) {
+            console.log(respuesta);
+            console.log(img); 
+              $('#'+img).attr('src',respuesta.src.tiny); // aqui mandamos a llamar los datos de mi api para posterior mente dale un atibuto a la imagen que nos regresa
+        } 
+    });
+}
+
+
+}
+// Fin de mi Api
+</script>
+
+<link rel="stylesheet" href="/css/Ahh.css">
+<div class="container mt-4 shadow-lg p-3  ">
+    <section id="data"></section>
+     </div>  
+</html>

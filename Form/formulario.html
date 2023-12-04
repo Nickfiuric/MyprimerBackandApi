@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript" src="/js/jquery-3.7.1.js"></script><!--Para mis funciones-->
+  <script type="text/javascript" src="/js/jquery.validate.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.bundle.js"></script>
+  <link rel="stylesheet"  type="text/css" href="/css/bootstrap.min.css">
+
+</head>
+<script>
+  $(function () {
+    $('#divMenu').load('/menu.html');
+  });
+</script>
+<body>
+  <div id="divMenu"></div>
+  
+  <section class="row g-3" style="width: 50%; position: fixed; top: 15%;left: 25%;">
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label" >Codigo del producto </label>
+      <input type="number" class="form-control" id="Codigo" placeholder="Codigo unico del producto">
+    </div>
+    <div class="col-md-6">
+      <label for="inputPassword4" class="form-label">Presio</label>
+      <input type="number" class="form-control" name="precio">
+    </div>
+    <div class="col-12">
+      <label for="inputAddress" class="form-label">Descripción</label>
+      <input type="text" class="form-control" name="Desc" placeholder="Descripcion del producto">
+    </div>
+    <div class="col-12">
+      <label for="inputAddress" class="form-label">Descripción</label>
+      <input type="file" class="form-control" name="Desc" placeholder="Descripcion del producto">
+    </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Sign in</button>
+    </div>
+  </section>
+</body>
+
+</html>
